@@ -30,7 +30,7 @@ const BottomNav = ({ activeTab, onTabChange }: BottomNavProps) => {
               }`}
             >
               <tab.icon className={`w-5 h-5 ${isActive ? "stroke-[2.5]" : "stroke-[1.8]"}`} />
-              <span className={`text-[10px] font-medium ${isActive ? "font-bold" : ""}`}>
+              <span className={`text-[10px] font-medium ${isActive ? "font-extrabold" : ""}`}>
                 {tab.label}
               </span>
               {isActive && (

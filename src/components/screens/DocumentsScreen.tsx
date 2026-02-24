@@ -28,7 +28,7 @@ const DocumentsScreen = () => {
         </div>
         <div className="w-full h-2.5 bg-secondary rounded-full overflow-hidden">
           <div
-            className="h-full bg-primary rounded-full transition-all duration-500"
+            className="h-full gradient-accent rounded-full transition-all duration-500"
             style={{ width: `${(uploaded / documents.length) * 100}%` }}
           />
         </div>
@@ -38,7 +38,7 @@ const DocumentsScreen = () => {
       </div>
 
       {/* Upload button */}
-      <button className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-xl py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">
+      <button className="w-full flex items-center justify-center gap-2 gradient-primary text-primary-foreground rounded-xl py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">
         <Camera className="w-4 h-4" />
         Subir documento (Foto o PDF)
       </button>

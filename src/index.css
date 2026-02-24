@@ -2,46 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 220 25% 12%;
+    /* ESSEN Brand Colors (HSL)
+       #763df2 → purple (primary)
+       #38dcab → teal/green (accent)
+       #162944 → dark navy (foreground)
+       #ffd41d → yellow (warning/highlight)
+       #0468bf → blue (info)
+    */
+    --background: 220 20% 97%;
+    --foreground: 214 50% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card-foreground: 214 50% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover-foreground: 214 50% 17%;
 
-    --primary: 25 95% 53%;
+    --primary: 262 87% 59%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 30% 93%;
-    --secondary-foreground: 220 25% 12%;
+    --secondary: 220 20% 93%;
+    --secondary-foreground: 214 50% 17%;
 
-    --muted: 30 15% 93%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 214 20% 46%;
 
-    --accent: 25 90% 95%;
-    --accent-foreground: 25 95% 40%;
+    --accent: 160 66% 54%;
+    --accent-foreground: 214 50% 17%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 89%;
-    --input: 30 15% 89%;
-    --ring: 25 95% 53%;
+    --border: 220 15% 89%;
+    --input: 220 15% 89%;
+    --ring: 262 87% 59%;
 
     --radius: 0.75rem;
 
-    --success: 152 60% 45%;
+    --success: 160 66% 54%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-    --info: 210 80% 55%;
+    --warning: 48 100% 56%;
+    --warning-foreground: 214 50% 17%;
+    --info: 212 97% 38%;
     --info-foreground: 0 0% 100%;
+
+    /* Brand gradient */
+    --gradient-brand: linear-gradient(135deg, hsl(262, 87%, 59%), hsl(212, 97%, 38%), hsl(160, 66%, 54%), hsl(48, 100%, 56%));
+    --gradient-primary: linear-gradient(135deg, hsl(262, 87%, 59%), hsl(212, 97%, 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(160, 66%, 54%), hsl(160, 66%, 44%));
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -50,7 +62,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 262 87% 59%;
   }
 }
 
@@ -60,13 +72,22 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Nunito Sans', sans-serif;
   }
 }
 
 @layer utilities {
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .gradient-accent {
+    background: var(--gradient-accent);
   }
 }
