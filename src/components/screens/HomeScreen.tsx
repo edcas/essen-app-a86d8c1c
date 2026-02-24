@@ -5,7 +5,7 @@ const HomeScreen = () => {
   const pendingItems = [
     { icon: FileText, label: "Documentos pendientes", count: 3, color: "bg-primary/10 text-primary" },
     { icon: ClipboardCheck, label: "Evaluaciones por contestar", count: 1, color: "bg-accent/15 text-accent-foreground" },
-    { icon: GraduationCap, label: "Cursos por completar", count: 2, color: "bg-info/10 text-info" },
+    { icon: GraduationCap, label: "Cursos por completar", count: 3, color: "bg-info/10 text-info" },
   ];
 
   const notices = [

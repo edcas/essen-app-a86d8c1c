@@ -2,6 +2,14 @@ import { Play, CheckCircle2, Lock, Clock, ChevronRight, Award } from "lucide-rea
 
 const courses = [
   {
+    title: "ESSAD - Ciberseguridad en la oficina y entornos de trabajo",
+    progress: 0,
+    modules: 6,
+    completed: 0,
+    status: "in_progress",
+    duration: "3h 00min",
+  },
+  {
     title: "Inducción General ESSEN",
     progress: 100,
     modules: 5,
