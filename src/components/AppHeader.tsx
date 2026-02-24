@@ -1,20 +1,19 @@
 import { Bell, User } from "lucide-react";
+import EssenLogo from "./EssenLogo";
 
 interface AppHeaderProps {
   title?: string;
   userName?: string;
 }
 
-const AppHeader = ({ title = "ESSEN", userName = "Carlos M." }: AppHeaderProps) => {
+const AppHeader = ({ title = "Essen", userName = "Carlos M." }: AppHeaderProps) => {
   return (
     <header className="sticky top-0 z-40 bg-card/80 backdrop-blur-lg border-b border-border">
       <div className="flex items-center justify-between px-5 py-3 max-w-lg mx-auto">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">E</span>
-          </div>
+          <EssenLogo size={36} variant="color" />
           <div>
-            <h1 className="text-base font-bold tracking-tight">{title}</h1>
+            <h1 className="text-base font-extrabold tracking-tight">{title}</h1>
             <p className="text-xs text-muted-foreground">Hola, {userName}</p>
           </div>
         </div>

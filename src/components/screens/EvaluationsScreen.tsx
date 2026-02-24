@@ -41,17 +41,17 @@ const EvaluationsScreen = () => {
   return (
     <div className="px-5 py-4 space-y-5 animate-fade-in">
       {/* Summary */}
-      <div className="bg-primary rounded-2xl p-5 text-primary-foreground">
-        <h2 className="text-lg font-bold">Evaluaciones</h2>
+      <div className="gradient-primary rounded-2xl p-5 text-primary-foreground">
+        <h2 className="text-lg font-extrabold">Evaluaciones</h2>
         <p className="text-sm opacity-90 mt-1">
           Tienes {pending} evaluación{pending !== 1 ? "es" : ""} pendiente{pending !== 1 ? "s" : ""}
         </p>
       </div>
 
       {/* Notice */}
-      <div className="flex items-start gap-2 bg-accent rounded-xl p-3 border border-primary/20">
-        <Lock className="w-4 h-4 text-accent-foreground mt-0.5 shrink-0" />
-        <p className="text-xs text-accent-foreground">
+      <div className="flex items-start gap-2 bg-primary/5 rounded-xl p-3 border border-primary/15">
+        <Lock className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+        <p className="text-xs text-foreground">
           Los resultados de las evaluaciones son confidenciales y solo visibles para el administrador.
         </p>
       </div>
@@ -77,7 +77,7 @@ const EvaluationsScreen = () => {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold truncate">{ev.title}</p>
               <div className="flex items-center gap-2 mt-1">
-                <span className="text-[10px] font-bold bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">
+                <span className="text-[10px] font-bold bg-primary/10 text-primary px-2 py-0.5 rounded-full">
                   {ev.type}
                 </span>
                 <span className="text-xs text-muted-foreground">{ev.questions} preguntas</span>

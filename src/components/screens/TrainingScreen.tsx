@@ -51,7 +51,7 @@ const TrainingScreen = () => {
         </div>
         <div className="w-full h-3 bg-secondary rounded-full overflow-hidden mt-3">
           <div
-            className="h-full bg-gradient-to-r from-primary to-warning rounded-full transition-all duration-700"
+            className="h-full gradient-primary rounded-full transition-all duration-700"
             style={{ width: `${totalProgress}%` }}
           />
         </div>

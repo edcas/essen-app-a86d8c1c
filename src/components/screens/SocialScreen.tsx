@@ -1,12 +1,13 @@
-import { Heart, MessageCircle, Share2, MoreHorizontal, ThumbsUp } from "lucide-react";
+import { Heart, MessageCircle, Share2, MoreHorizontal } from "lucide-react";
+import EssenLogo from "../EssenLogo";
 
 const posts = [
   {
-    author: "ESSEN RH",
-    avatar: "E",
+    author: "Essen RH",
+    avatar: null,
     role: "Recursos Humanos",
     time: "Hace 3h",
-    text: "🎉 ¡Felicitamos a nuestro equipo de Monterrey por alcanzar el objetivo del trimestre! Su compromiso y dedicación nos inspiran a todos. #OrgulloESSEN",
+    text: "🎉 ¡Felicitamos a nuestro equipo de Monterrey por alcanzar el objetivo del trimestre! Su compromiso y dedicación nos inspiran a todos. #OrgulloEssen",
     image: true,
     likes: 47,
     comments: 12,
@@ -14,7 +15,7 @@ const posts = [
   },
   {
     author: "María García",
-    avatar: "M",
+    avatar: "MG",
     role: "Dir. de Operaciones",
     time: "Hace 6h",
     text: "Compartimos el nuevo manual de procedimientos actualizado para 2026. Por favor revísenlo y envíen sus comentarios antes del viernes. 📋",
@@ -24,8 +25,8 @@ const posts = [
     liked: true,
   },
   {
-    author: "ESSEN Cultura",
-    avatar: "E",
+    author: "Essen Cultura",
+    avatar: null,
     role: "Cultura Organizacional",
     time: "Ayer",
     text: "🏃‍♂️ ¡Inscríbete a la carrera corporativa 2026! Este 15 de marzo corremos juntos. Más información en el link del bio.",
@@ -44,7 +45,7 @@ const SocialScreen = () => {
         <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
           {["RH", "Cultura", "Mtto", "Ventas", "IT"].map((area, i) => (
             <div key={i} className="flex flex-col items-center gap-1 shrink-0">
-              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-warning p-0.5">
+              <div className="w-14 h-14 rounded-full gradient-brand p-0.5">
                 <div className="w-full h-full rounded-full bg-card flex items-center justify-center">
                   <span className="text-xs font-bold text-foreground">{area.slice(0, 2)}</span>
                 </div>
@@ -61,9 +62,15 @@ const SocialScreen = () => {
           <article key={i} className="bg-card border-y border-border">
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3">
-              <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">{post.avatar}</span>
-              </div>
+              {post.avatar ? (
+                <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center">
+                  <span className="text-accent-foreground font-bold text-xs">{post.avatar}</span>
+                </div>
+              ) : (
+                <div className="w-9 h-9 rounded-full gradient-primary flex items-center justify-center">
+                  <EssenLogo size={20} variant="white" />
+                </div>
+              )}
               <div className="flex-1">
                 <p className="text-sm font-bold">{post.author}</p>
                 <p className="text-[11px] text-muted-foreground">{post.role} · {post.time}</p>
@@ -75,8 +82,8 @@ const SocialScreen = () => {
 
             {/* Image placeholder */}
             {post.image && (
-              <div className="w-full aspect-video bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">📸 Imagen</span>
+              <div className="w-full aspect-video gradient-brand opacity-30 flex items-center justify-center relative">
+                <span className="text-foreground text-sm font-medium absolute">📸 Imagen</span>
               </div>
             )}
 
