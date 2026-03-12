@@ -11,7 +11,6 @@ const tabs = [
   { id: "evaluations", label: "Evaluar", icon: ClipboardCheck },
   { id: "social", label: "Social", icon: MessageCircle },
   { id: "training", label: "Cursos", icon: GraduationCap },
-  { id: "profile", label: "Perfil", icon: User },
 ];
 
 const BottomNav = ({ activeTab, onTabChange }: BottomNavProps) => {

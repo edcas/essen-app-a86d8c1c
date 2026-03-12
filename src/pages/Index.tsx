@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background max-w-lg mx-auto relative">
       <SplashAnimation show={showSplash} onComplete={() => setShowSplash(false)} />
-      <AppHeader title={tabTitles[activeTab]} />
+      <AppHeader title={tabTitles[activeTab]} onProfileClick={() => setActiveTab("profile")} />
       <main className="pb-20">
         {renderScreen()}
       </main>
