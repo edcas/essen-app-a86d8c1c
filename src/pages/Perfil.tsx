@@ -1,9 +1,8 @@
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Phone, Briefcase, Calendar, ChevronRight, CreditCard, HelpCircle, LogOut, Edit3, Users, Camera, Upload, X, Shield, EyeOff } from "lucide-react";
+import { User, Mail, Phone, Briefcase, Calendar, ChevronRight, CreditCard, HelpCircle, LogOut, Edit3, Users, Camera, Upload, X, Shield } from "lucide-react";
 import { useSettings } from "@/hooks/use-settings";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
@@ -100,7 +99,6 @@ export default function Perfil() {
         <h2 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3 px-1">Configuración</h2>
         <div className="bg-card rounded-xl border border-border overflow-hidden divide-y divide-border">
           <button onClick={() => navigate("/ayuda")} className="w-full flex items-center justify-between p-4 hover:bg-secondary/30 transition-colors"><div className="flex items-center gap-3"><HelpCircle className="w-4 h-4 text-primary" /><span className="font-semibold text-foreground text-sm">Ayuda y soporte</span></div><ChevronRight className="w-4 h-4 text-muted-foreground" /></button>
-          <div className="flex items-center justify-between p-4"><div className="flex items-center gap-3"><EyeOff className="w-4 h-4 text-primary" /><span className="font-semibold text-foreground text-sm">Ocultar constancias</span></div><Switch checked={settings.hideConstancias} onCheckedChange={(val) => updateSetting("hideConstancias", val)} /></div>
         </div>
       </motion.div>
 
