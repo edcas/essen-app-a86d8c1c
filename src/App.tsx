@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MobileShell from "@/components/MobileShell";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Asistencia from "./pages/Asistencia";
@@ -29,21 +30,23 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/asistencia" element={<Asistencia />} />
-          <Route path="/nomina" element={<Nomina />} />
-          <Route path="/avisos" element={<Avisos />} />
-          <Route path="/avisos/:id" element={<AvisoDetalle />} />
-          <Route path="/perfil" element={<Perfil />} />
-          <Route path="/bienestar" element={<Bienestar />} />
-          <Route path="/mis-turnos" element={<MisTurnos />} />
-          <Route path="/directorio" element={<Directorio />} />
-          <Route path="/vacaciones" element={<Vacaciones />} />
-          <Route path="/datos-personales" element={<DatosPersonales />} />
-          <Route path="/datos-bancarios" element={<DatosBancarios />} />
-          <Route path="/mis-seguros" element={<MisSeguros />} />
-          <Route path="/nueva-solicitud" element={<NuevaSolicitud />} />
-          <Route path="/ayuda" element={<Ayuda />} />
+          <Route element={<MobileShell />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/asistencia" element={<Asistencia />} />
+            <Route path="/nomina" element={<Nomina />} />
+            <Route path="/avisos" element={<Avisos />} />
+            <Route path="/avisos/:id" element={<AvisoDetalle />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/bienestar" element={<Bienestar />} />
+            <Route path="/mis-turnos" element={<MisTurnos />} />
+            <Route path="/directorio" element={<Directorio />} />
+            <Route path="/vacaciones" element={<Vacaciones />} />
+            <Route path="/datos-personales" element={<DatosPersonales />} />
+            <Route path="/datos-bancarios" element={<DatosBancarios />} />
+            <Route path="/mis-seguros" element={<MisSeguros />} />
+            <Route path="/nueva-solicitud" element={<NuevaSolicitud />} />
+            <Route path="/ayuda" element={<Ayuda />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
