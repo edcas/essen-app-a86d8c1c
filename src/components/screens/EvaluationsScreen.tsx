@@ -1,4 +1,5 @@
-import { ClipboardCheck, Clock, ChevronRight, Lock } from "lucide-react";
+import { ClipboardCheck, Clock, ChevronRight, Lock, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const evaluations = [
   {
@@ -55,6 +56,21 @@ const EvaluationsScreen = () => {
           Los resultados de las evaluaciones son confidenciales y solo visibles para el administrador.
         </p>
       </div>
+
+      {/* Buzón Línea Segura */}
+      <Link
+        to="/buzon-linea-segura"
+        className="flex items-center gap-3 bg-card border-2 border-primary/20 rounded-2xl p-4 hover:border-primary/40 transition-all group"
+      >
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+          <ShieldCheck className="w-6 h-6 text-primary" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-bold text-foreground">Buzón de Línea Segura</p>
+          <p className="text-xs text-muted-foreground">Reporta incidencias de forma confidencial o anónima</p>
+        </div>
+        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+      </Link>
 
       {/* List */}
       <div className="space-y-2.5">
