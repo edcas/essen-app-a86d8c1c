@@ -1,5 +1,4 @@
 import { Home, FileText, ClipboardCheck, MessageCircle, GraduationCap, User } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 interface BottomNavProps {
   activeTab: string;
@@ -16,13 +15,7 @@ const tabs = [
 ];
 
 const BottomNav = ({ activeTab, onTabChange }: BottomNavProps) => {
-  const navigate = useNavigate();
-
   const handleTab = (tabId: string) => {
-    if (tabId === "profile") {
-      navigate("/perfil");
-      return;
-    }
     onTabChange(tabId);
   };
 

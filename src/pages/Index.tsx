@@ -7,6 +7,7 @@ import EvaluationsScreen from "@/components/screens/EvaluationsScreen";
 import SocialScreen from "@/components/screens/SocialScreen";
 import TrainingScreen from "@/components/screens/TrainingScreen";
 import SplashAnimation from "@/components/SplashAnimation";
+import Perfil from "@/pages/Perfil";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -18,6 +19,7 @@ const Index = () => {
     evaluations: "Evaluaciones",
     social: "Social",
     training: "Capacitación",
+    profile: "Mi Perfil",
   };
 
   const handleTabChange = useCallback((tab: string) => {
@@ -34,6 +36,7 @@ const Index = () => {
       case "evaluations": return <EvaluationsScreen />;
       case "social": return <SocialScreen />;
       case "training": return <TrainingScreen />;
+      case "profile": return <Perfil />;
       default: return <HomeScreen />;
     }
   };
