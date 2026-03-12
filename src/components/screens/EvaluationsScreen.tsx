@@ -1,4 +1,4 @@
-import { ClipboardCheck, Clock, ChevronRight, Lock, ShieldCheck } from "lucide-react";
+import { ClipboardCheck, Clock, ChevronRight, Lock, ShieldCheck, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const evaluations = [
@@ -57,21 +57,6 @@ const EvaluationsScreen = () => {
         </p>
       </div>
 
-      {/* Buzón Línea Segura */}
-      <Link
-        to="/buzon-linea-segura"
-        className="flex items-center gap-3 bg-card border-2 border-primary/20 rounded-2xl p-4 hover:border-primary/40 transition-all group"
-      >
-        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
-          <ShieldCheck className="w-6 h-6 text-primary" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-foreground">Buzón de Línea Segura</p>
-          <p className="text-xs text-muted-foreground">Reporta incidencias de forma confidencial o anónima</p>
-        </div>
-        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-      </Link>
-
       {/* List */}
       <div className="space-y-2.5">
         {evaluations.map((ev, i) => (
@@ -110,6 +95,29 @@ const EvaluationsScreen = () => {
             {ev.status === "pending" && <ChevronRight className="w-4 h-4 text-muted-foreground" />}
           </button>
         ))}
+      </div>
+
+      {/* Separador de sección - Canal de Denuncias */}
+      <div className="pt-4 border-t border-border">
+        <div className="flex items-center gap-2 mb-3">
+          <AlertTriangle className="w-4 h-4 text-warning-foreground" />
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Canal de Denuncias</p>
+        </div>
+
+        {/* Buzón Línea Segura - Estilo distintivo */}
+        <Link
+          to="/buzon-linea-segura"
+          className="flex items-center gap-3 bg-warning/5 border-2 border-warning/30 rounded-2xl p-4 hover:border-warning/50 hover:bg-warning/10 transition-all group"
+        >
+          <div className="w-12 h-12 rounded-xl bg-warning/20 flex items-center justify-center shrink-0 group-hover:bg-warning/30 transition-colors">
+            <ShieldCheck className="w-6 h-6 text-warning-foreground" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-bold text-foreground">Buzón de Línea Segura</p>
+            <p className="text-xs text-muted-foreground">Reporta incidencias de forma confidencial o anónima</p>
+          </div>
+          <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-warning-foreground transition-colors" />
+        </Link>
       </div>
     </div>
   );
