@@ -1,9 +1,8 @@
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { User, Mail, Phone, Briefcase, Calendar, ChevronRight, CreditCard, HelpCircle, LogOut, Edit3, Users, Camera, Upload, X, Shield, EyeOff } from "lucide-react";
+import { User, Mail, Phone, Briefcase, Calendar, ChevronRight, CreditCard, HelpCircle, LogOut, Edit3, Users, Camera, Upload, X, Shield } from "lucide-react";
 import { useSettings } from "@/hooks/use-settings";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
