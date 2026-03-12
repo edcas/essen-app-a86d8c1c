@@ -20,6 +20,7 @@ import DatosBancarios from "./pages/DatosBancarios";
 import MisSeguros from "./pages/MisSeguros";
 import NuevaSolicitud from "./pages/NuevaSolicitud";
 import Ayuda from "./pages/Ayuda";
+import BuzonLineaSegura from "./pages/BuzonLineaSegura";
 
 const queryClient = new QueryClient();
 
