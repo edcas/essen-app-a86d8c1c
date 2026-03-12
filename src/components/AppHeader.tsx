@@ -4,9 +4,10 @@ import EssenLogo from "./EssenLogo";
 interface AppHeaderProps {
   title?: string;
   userName?: string;
+  onProfileClick?: () => void;
 }
 
-const AppHeader = ({ title = "Essen", userName = "Carlos M." }: AppHeaderProps) => {
+const AppHeader = ({ title = "Essen", userName = "Carlos M.", onProfileClick }: AppHeaderProps) => {
   return (
     <header className="sticky top-0 z-40 bg-card/80 backdrop-blur-lg border-b border-border">
       <div className="flex items-center justify-between px-5 py-3 max-w-lg mx-auto">
