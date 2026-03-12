@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import AppHeader from "@/components/AppHeader";
-import BottomNav from "@/components/BottomNav";
 import HomeScreen from "@/components/screens/HomeScreen";
 import DocumentsScreen from "@/components/screens/DocumentsScreen";
 import EvaluationsScreen from "@/components/screens/EvaluationsScreen";
@@ -10,8 +10,17 @@ import SplashAnimation from "@/components/SplashAnimation";
 import Perfil from "@/pages/Perfil";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState("home");
+  const [searchParams] = useSearchParams();
+  const tabParam = searchParams.get("tab") || "home";
+  const [activeTab, setActiveTab] = useState(tabParam);
   const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    setActiveTab(tabParam);
+    if (tabParam === "home") {
+      setShowSplash(true);
+    }
+  }, [tabParam]);
 
   const tabTitles: Record<string, string> = {
     home: "Essen",
@@ -21,13 +30,6 @@ const Index = () => {
     training: "Capacitación",
     profile: "Mi Perfil",
   };
-
-  const handleTabChange = useCallback((tab: string) => {
-    if (tab === "home") {
-      setShowSplash(true);
-    }
-    setActiveTab(tab);
-  }, []);
 
   const renderScreen = () => {
     switch (activeTab) {
@@ -48,7 +50,6 @@ const Index = () => {
       <main className="pb-20">
         {renderScreen()}
       </main>
-      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} />
     </div>
   );
 };
