@@ -1,7 +1,26 @@
+import { useState } from "react";
 import { FileText, ClipboardCheck, GraduationCap, AlertCircle, ChevronRight, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import EssenLogo from "../EssenLogo";
+import { CheckinButton } from "../checkin/CheckinButton";
+import { WorkStatus } from "../dashboard/WorkStatus";
+import { QuickStats } from "../dashboard/QuickStats";
+import { QuickActions } from "../dashboard/QuickActions";
 
 const HomeScreen = () => {
+  const [isCheckedIn, setIsCheckedIn] = useState(false);
+  const [checkinTime, setCheckinTime] = useState<string | null>(null);
+
+  const handleCheckin = () => {
+    setIsCheckedIn(true);
+    setCheckinTime(new Date().toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit" }));
+  };
+
+  const handleCheckout = () => {
+    setIsCheckedIn(false);
+    setCheckinTime(null);
+  };
+
   const pendingItems = [
     { icon: FileText, label: "Documentos pendientes", count: 3, color: "bg-primary/10 text-primary" },
     { icon: ClipboardCheck, label: "Evaluaciones por contestar", count: 1, color: "bg-accent/15 text-accent-foreground" },
@@ -15,26 +34,43 @@ const HomeScreen = () => {
 
   return (
     <div className="px-5 py-4 space-y-6 animate-fade-in">
-      {/* Welcome banner - brand gradient */}
+      {/* Welcome banner */}
       <div className="gradient-primary rounded-2xl p-5 text-primary-foreground relative overflow-hidden">
         <div className="absolute top-2 right-2 opacity-10">
           <EssenLogo size={80} variant="white" />
         </div>
         <p className="text-sm font-semibold opacity-90">Wellbeing Corporativo</p>
         <h2 className="text-xl font-extrabold mt-1">¡Buen día, Carlos!</h2>
-        <p className="text-sm opacity-90 mt-1">Tienes 6 pendientes por atender hoy.</p>
-        <div className="flex gap-2 mt-4">
-          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">
-            3 docs
-          </span>
-          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">
-            1 evaluación
-          </span>
-          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">
-            2 cursos
-          </span>
+        <p className="text-sm opacity-90 mt-1">Tienes 7 pendientes por atender hoy.</p>
+        <div className="flex gap-2 mt-4 flex-wrap">
+          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">3 docs</span>
+          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">1 evaluación</span>
+          <span className="bg-primary-foreground/20 text-primary-foreground text-xs font-semibold px-3 py-1.5 rounded-full">3 cursos</span>
         </div>
       </div>
+
+      {/* Check-in section */}
+      <section>
+        <h3 className="text-sm font-bold text-foreground mb-3">Registro de asistencia</h3>
+        <div className="flex flex-col items-center py-4">
+          <CheckinButton isCheckedIn={isCheckedIn} onCheckin={handleCheckin} onCheckout={handleCheckout} />
+          <p className="text-xs text-muted-foreground mt-4">
+            {isCheckedIn ? "Toca para registrar salida" : "Toca para registrar entrada"}
+          </p>
+        </div>
+        <WorkStatus isCheckedIn={isCheckedIn} checkinTime={checkinTime} />
+      </section>
+
+      {/* Quick stats */}
+      <section>
+        <h3 className="text-sm font-bold text-foreground mb-3">Resumen</h3>
+        <QuickStats />
+      </section>
+
+      {/* Quick actions / Solicitudes */}
+      <section>
+        <QuickActions />
+      </section>
 
       {/* Pending items */}
       <section>
@@ -65,7 +101,12 @@ const HomeScreen = () => {
 
       {/* Recent Notices */}
       <section>
-        <h3 className="text-sm font-bold text-foreground mb-3">Avisos recientes</h3>
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-bold text-foreground">Avisos recientes</h3>
+          <Link to="/avisos" className="text-sm text-primary font-semibold flex items-center gap-1 hover:underline">
+            Ver todos <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
         <div className="space-y-2.5">
           {notices.map((notice, i) => (
             <div key={i} className="flex items-start gap-3 bg-card rounded-xl p-3.5 border border-border">
